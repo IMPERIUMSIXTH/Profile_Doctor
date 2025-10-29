@@ -21,3 +21,6 @@ loguru
 # Testing
 pytest
 pytest-asyncio
+
+# Configuration
+pydantic-settings

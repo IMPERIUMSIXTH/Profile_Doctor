@@ -7,18 +7,16 @@ services:
       - "8000:8000"
     volumes:
       - ./backend/app:/app
-    environment:
-      - DATABASE_URL=postgresql+asyncpg://user:password@db/profile_doctor
+    env_file:
+      - .env
     depends_on:
       - db
       - redis
 
   db:
     image: postgres:15
-    environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=profile_doctor
+    env_file:
+      - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
