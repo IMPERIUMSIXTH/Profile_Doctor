@@ -1,0 +1,23 @@
+# Web Framework
+fastapi
+uvicorn
+
+# ORM
+sqlalchemy[asyncio]
+asyncpg
+alembic
+psycopg2-binary
+
+# Task Queue
+celery[redis]
+
+# Auth & Encryption
+python-jose[cryptography]
+cryptography
+
+# Logging
+loguru
+
+# Testing
+pytest
+pytest-asyncio
