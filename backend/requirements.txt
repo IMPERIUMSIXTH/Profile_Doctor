@@ -25,6 +25,5 @@ pytest-asyncio
 # Configuration
 pydantic-settings
 passlib
-python-jose[cryptography]
 python-multipart
 fastapi-limiter
