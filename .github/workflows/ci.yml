@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r backend/requirements.txt
+          pip install -r backend/requirements-dev.txt
+
+      - name: Linting
+        run: |
+          (cd backend && black --check . && flake8 . && mypy .)
+
+      - name: Unit tests
+        run: |
+          (cd backend && pytest --cov=app --maxfail=1)
+
+      - name: Security scans
+        run: |
+          (cd backend && bandit -r app/ && pip-audit)

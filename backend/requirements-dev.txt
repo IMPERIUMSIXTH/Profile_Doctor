@@ -1,3 +1,5 @@
 # Security
 bandit
 pip-audit
+\n# Linting and Formatting\nflake8\nblack\nmypy
+\n# Testing\npytest-cov
