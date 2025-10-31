@@ -1,23 +1,15 @@
 # Web Framework
-fastapi
-uvicorn
+fastapi==0.104.1
+uvicorn==0.24.0.post1
 
 # ORM
-sqlalchemy[asyncio]
-asyncpg
-alembic
-psycopg2-binary
-
-# Task Queue
-celery[redis]
-
-# Auth & Encryption
-python-jose[cryptography]
-cryptography
+sqlalchemy[asyncio]==2.0.23
+asyncpg==0.29.0
+alembic==1.13.0
+psycopg2-binary==2.9.9
 
 # Logging
-loguru
+loguru==0.7.2
 
-# Testing
-pytest
-pytest-asyncio
+# Pydantic
+pydantic-settings==2.1.0
