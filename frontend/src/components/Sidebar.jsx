@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useSidebarStore } from '../lib/store';
 import { Home, Search, Wrench, FileText, Settings } from 'lucide-react';
 
@@ -14,34 +15,34 @@ const Sidebar = () => {
       <nav className="mt-8">
         <ul>
           <li className="mb-4">
-            <a href="#" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
-              <Home size={24} />
+            <Link to="/" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
+              <Home size={24} className="stroke-current" />
               <span className={`${isOpen ? 'ml-4' : 'hidden'}`}>Home</span>
-            </a>
+            </Link>
           </li>
           <li className="mb-4">
-            <a href="#" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
-              <Search size={24} />
+            <Link to="/scans" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
+              <Search size={24} className="stroke-current" />
               <span className={`${isOpen ? 'ml-4' : 'hidden'}`}>Scan</span>
-            </a>
+            </Link>
           </li>
           <li className="mb-4">
-            <a href="#" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
-              <Wrench size={24} />
+            <Link to="/repairs" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
+              <Wrench size={24} className="stroke-current" />
               <span className={`${isOpen ? 'ml-4' : 'hidden'}`}>Repairs</span>
-            </a>
+            </Link>
           </li>
           <li className="mb-4">
-            <a href="#" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
-              <FileText size={24} />
+            <Link to="/reports" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
+              <FileText size={24} className="stroke-current" />
               <span className={`${isOpen ? 'ml-4' : 'hidden'}`}>Reports</span>
-            </a>
+            </Link>
           </li>
           <li className="mb-4">
-            <a href="#" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
-              <Settings size={24} />
+            <Link to="/settings" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
+              <Settings size={24} className="stroke-current" />
               <span className={`${isOpen ? 'ml-4' : 'hidden'}`}>Settings</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
