@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
+import Scans from './pages/Scans';
+import Reports from './pages/Reports';
+import Repairs from './pages/Repairs';
+import Settings from './pages/Settings';
 import Footer from './components/Footer';
 import { useThemeStore } from './lib/themeStore';
 
@@ -20,7 +25,13 @@ function App() {
       <div className="flex flex-1">
         <Sidebar />
         <div className="flex-1">
-          <Dashboard />
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/scans" element={<Scans />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/repairs" element={<Repairs />} />
+            <Route path="/settings" element={<Settings />} />
+          </Routes>
         </div>
       </div>
       <Footer />

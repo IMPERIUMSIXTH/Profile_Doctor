@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, Sun, Moon } from 'lucide-react';
 import { useSidebarStore } from '../lib/store';
 import { useThemeStore } from '../lib/themeStore';
@@ -6,11 +7,6 @@ import { useThemeStore } from '../lib/themeStore';
 const Header = () => {
   const { toggle: toggleSidebar } = useSidebarStore();
   const { theme, toggle: toggleTheme } = useThemeStore();
-
-  const handleNavClick = (e) => {
-    e.preventDefault();
-    console.log(`Navigation link clicked: ${e.target.textContent}`);
-  };
 
   return (
     <header className="bg-surface sticky top-0 z-10 shadow-md">
@@ -20,21 +16,21 @@ const Header = () => {
             onClick={toggleSidebar}
             className="md:hidden mr-4 text-textPrimary hover:text-primary focus:outline-none"
           >
-            <Menu size={24} />
+            <Menu size={24} className="stroke-current" />
           </button>
           <div className="text-2xl font-bold text-textPrimary">Profile Doctor</div>
         </div>
         <nav className="hidden md:flex space-x-8">
-          <a href="#" onClick={handleNavClick} className="text-textSecondary hover:text-primary">Dashboard</a>
-          <a href="#" onClick={handleNavClick} className="text-textSecondary hover:text-primary">Scans</a>
-          <a href="#" onClick={handleNavClick} className="text-textSecondary hover:text-primary">Reports</a>
+          <Link to="/" className="text-textSecondary hover:text-primary">Dashboard</Link>
+          <Link to="/scans" className="text-textSecondary hover:text-primary">Scans</Link>
+          <Link to="/reports" className="text-textSecondary hover:text-primary">Reports</Link>
         </nav>
         <div className="flex items-center">
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full text-textSecondary hover:bg-background"
           >
-            {theme === 'light' ? <Sun size={20} /> : <Moon size={20} />}
+            {theme === 'light' ? <Sun size={20} className="stroke-current" /> : <Moon size={20} className="stroke-current" />}
           </button>
         </div>
       </div>
