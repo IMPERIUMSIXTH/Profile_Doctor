@@ -14,6 +14,10 @@ const data = [
 ];
 
 const Dashboard = () => {
+  const handleOneClickFix = () => {
+    console.log('One-Click Fix button clicked!');
+  };
+
   return (
     <main className="flex-1 p-8 bg-background">
       <div className="container mx-auto">
@@ -87,7 +91,7 @@ const Dashboard = () => {
           <Card>
             <CardContent className="flex items-center justify-between p-6">
               <p className="text-textSecondary">Recommended action for pending conflicts.</p>
-              <Button>One-Click Fix</Button>
+              <Button onClick={handleOneClickFix}>One-Click Fix</Button>
             </CardContent>
           </Card>
         </section>

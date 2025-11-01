@@ -7,6 +7,11 @@ const Header = () => {
   const { toggle: toggleSidebar } = useSidebarStore();
   const { theme, toggle: toggleTheme } = useThemeStore();
 
+  const handleNavClick = (e) => {
+    e.preventDefault();
+    console.log(`Navigation link clicked: ${e.target.textContent}`);
+  };
+
   return (
     <header className="bg-surface sticky top-0 z-10 shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
@@ -20,9 +25,9 @@ const Header = () => {
           <div className="text-2xl font-bold text-textPrimary">Profile Doctor</div>
         </div>
         <nav className="hidden md:flex space-x-8">
-          <a href="#" className="text-textSecondary hover:text-primary">Dashboard</a>
-          <a href="#" className="text-textSecondary hover:text-primary">Scans</a>
-          <a href="#" className="text-textSecondary hover:text-primary">Reports</a>
+          <a href="#" onClick={handleNavClick} className="text-textSecondary hover:text-primary">Dashboard</a>
+          <a href="#" onClick={handleNavClick} className="text-textSecondary hover:text-primary">Scans</a>
+          <a href="#" onClick={handleNavClick} className="text-textSecondary hover:text-primary">Reports</a>
         </nav>
         <div className="flex items-center">
           <button
