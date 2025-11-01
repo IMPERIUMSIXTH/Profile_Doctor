@@ -1,32 +1,35 @@
 import React from 'react';
+import { Menu, Sun, Moon } from 'lucide-react';
 import { useSidebarStore } from '../lib/store';
+import { useThemeStore } from '../lib/themeStore';
 
 const Header = () => {
-  const { toggle } = useSidebarStore();
+  const { toggle: toggleSidebar } = useSidebarStore();
+  const { theme, toggle: toggleTheme } = useThemeStore();
 
   return (
-    <header className="bg-white shadow">
-      <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <h1 className="text-3xl font-bold text-gray-900">Profile Doctor</h1>
-        <div className="md:hidden">
+    <header className="bg-surface sticky top-0 z-10 shadow-md">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        <div className="flex items-center">
           <button
-            onClick={toggle}
-            className="text-gray-900 hover:text-gray-700 focus:outline-none"
+            onClick={toggleSidebar}
+            className="md:hidden mr-4 text-textPrimary hover:text-primary focus:outline-none"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
+            <Menu size={24} />
+          </button>
+          <div className="text-2xl font-bold text-textPrimary">Profile Doctor</div>
+        </div>
+        <nav className="hidden md:flex space-x-8">
+          <a href="#" className="text-textSecondary hover:text-primary">Dashboard</a>
+          <a href="#" className="text-textSecondary hover:text-primary">Scans</a>
+          <a href="#" className="text-textSecondary hover:text-primary">Reports</a>
+        </nav>
+        <div className="flex items-center">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full text-textSecondary hover:bg-background"
+          >
+            {theme === 'light' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         </div>
       </div>

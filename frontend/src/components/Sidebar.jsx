@@ -1,26 +1,51 @@
 import React from 'react';
 import { useSidebarStore } from '../lib/store';
+import { Home, Search, Wrench, FileText, Settings } from 'lucide-react';
 
 const Sidebar = () => {
   const { isOpen } = useSidebarStore();
 
   return (
-    <div
-      className={`w-64 bg-gray-800 text-white transition-all duration-300 ease-in-out ${
-        isOpen ? 'block' : 'hidden'
-      } md:block`}
+    <aside
+      className={`bg-surface shadow-lg transition-all duration-300 ease-in-out ${
+        isOpen ? 'w-64' : 'w-20'
+      } hidden md:block`}
     >
-      <div className="p-4">
-        <h2 className="text-2xl font-bold">Menu</h2>
+      <nav className="mt-8">
         <ul>
-          <li className="p-2">Home</li>
-          <li className="p-2">Scan</li>
-          <li className="p-2">Repairs</li>
-          <li className="p-2">Reports</li>
-          <li className="p-2">Settings</li>
+          <li className="mb-4">
+            <a href="#" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
+              <Home size={24} />
+              <span className={`${isOpen ? 'ml-4' : 'hidden'}`}>Home</span>
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="#" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
+              <Search size={24} />
+              <span className={`${isOpen ? 'ml-4' : 'hidden'}`}>Scan</span>
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="#" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
+              <Wrench size={24} />
+              <span className={`${isOpen ? 'ml-4' : 'hidden'}`}>Repairs</span>
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="#" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
+              <FileText size={24} />
+              <span className={`${isOpen ? 'ml-4' : 'hidden'}`}>Reports</span>
+            </a>
+          </li>
+          <li className="mb-4">
+            <a href="#" className="flex items-center p-4 text-textSecondary hover:bg-background hover:text-primary rounded-lg">
+              <Settings size={24} />
+              <span className={`${isOpen ? 'ml-4' : 'hidden'}`}>Settings</span>
+            </a>
+          </li>
         </ul>
-      </div>
-    </div>
+      </nav>
+    </aside>
   );
 };
 
